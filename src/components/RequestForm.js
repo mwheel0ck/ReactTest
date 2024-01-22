@@ -53,10 +53,13 @@ export default function RequestForm() {
     //});
   };
 
-  //function parseDate(item) {
-  //  var d = new Date(0);
-  //  d.setUTCDate(item);
-  //}
+  function parseDate(datesecs) {
+    var dummy = parseInt(datesecs)*1000;
+    const d = new Date(dummy);
+    //d.setUTCSeconds(dummy,0);
+    console.log(d);
+    return (<div><td>{d.toISOString().substring(0,10)}</td></div>)
+  }
 
   return (
     <div className="App">
@@ -69,16 +72,14 @@ export default function RequestForm() {
         <thead>
           <tr>
             <th>Date</th>
-            <th>Min</th>
-            <th>Max</th>
-          </tr>
+            <th>Temp</th>
+         </tr>
         </thead>
         <tbody>
           {temps.map((item) => (
             <tr key={Math.random()}>
-              <td>{item.dt}</td>
-              <td>{item.temp.min}</td>
-              <td>{item.temp.max}</td>
+              <td>{parseDate(item.dt)}</td>
+              <td>{item.temp.max} / {item.temp.min} ºF</td>
             </tr>
           ))}
         </tbody>
