@@ -33,7 +33,9 @@ export default function RequestForm() {
         "&cnt=16&units=imperial&appid=2d41c22ae78b3bd082fd3f0eda60e983";
       console.log(dailyAPIURL);
       axios.get(dailyAPIURL).then((res2) => {
-        //console.log(res2.data.list);
+        console.log(res2.data.list);
+        var list = res2.data.list;
+
         setTemps(res2.data.list);
       });
     });
@@ -51,6 +53,11 @@ export default function RequestForm() {
     //});
   };
 
+  function parseDate(item) {
+    var d = new Date(0);
+    d.setUTCDate(item);
+  }
+
   return (
     <div className="App">
       <form onSubmit={onSubmit}>
@@ -59,11 +66,24 @@ export default function RequestForm() {
         <button type="submit">Submit</button>
       </form>
       <label>{result}</label>
-      <ul>
-        {temps.map((item) => (
-          <li key={Math.random()}>High: {item.temp.max}</li>
-        ))}
-      </ul>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Min</th>
+            <th>Max</th>
+          </tr>
+        </thead>
+        <tbody>
+          {temps.map((item) => (
+            <tr key={Math.random()}>
+              <td>{item.dt}</td>
+              <td>{item.temp.min}</td>
+              <td>{item.temp.max}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
