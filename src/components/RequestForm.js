@@ -66,7 +66,7 @@ export default function RequestForm() {
         <button type="submit">Submit</button>
       </form>
       <label>{result}</label>
-      <table>
+      <table className="table table-striped">
         <thead>
           <tr>
             <th>Date</th>
