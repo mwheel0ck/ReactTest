@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 export default function RequestForm() {
@@ -7,9 +7,6 @@ export default function RequestForm() {
   const [temps, setTemps] = useState([]);
   //const [lat, setLat] = useState("");
   //const [lon, setLon] = useState("");
-
-  let lat = 0;
-  let lon = 0;
 
   const onChange = (e) => {
     setMessage(e.target.value);
