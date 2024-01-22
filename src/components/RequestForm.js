@@ -34,7 +34,7 @@ export default function RequestForm() {
       console.log(dailyAPIURL);
       axios.get(dailyAPIURL).then((res2) => {
         console.log(res2.data.list);
-        var list = res2.data.list;
+        //        var list = res2.data.list;
 
         setTemps(res2.data.list);
       });
@@ -53,10 +53,10 @@ export default function RequestForm() {
     //});
   };
 
-  function parseDate(item) {
-    var d = new Date(0);
-    d.setUTCDate(item);
-  }
+  //function parseDate(item) {
+  //  var d = new Date(0);
+  //  d.setUTCDate(item);
+  //}
 
   return (
     <div className="App">
