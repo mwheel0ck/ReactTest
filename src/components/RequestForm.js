@@ -57,8 +57,8 @@ export default function RequestForm() {
     var dummy = parseInt(datesecs)*1000;
     const d = new Date(dummy);
     //d.setUTCSeconds(dummy,0);
-    console.log(d);
-    return (<div><td>{d.toISOString().substring(0,10)}</td></div>)
+    //console.log(d);
+    return (<td>{d.toISOString().substring(0,10)}</td>)
   }
 
   return (
@@ -68,6 +68,7 @@ export default function RequestForm() {
         <input className="mr-2" type="text" name="name" onChange={onChange} />
         <button type="submit">Submit</button>
       </form>
+      <div className="container container-sm">
       <table className="table table-striped">
         <thead>
           <tr>
@@ -78,12 +79,13 @@ export default function RequestForm() {
         <tbody>
           {temps.map((item) => (
             <tr key={Math.random()}>
-              <td>{parseDate(item.dt)}</td>
+              {parseDate(item.dt)}
               <td>{item.temp.max} / {item.temp.min} ºF</td>
             </tr>
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }
