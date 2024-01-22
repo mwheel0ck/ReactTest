@@ -33,7 +33,7 @@ export default function RequestForm() {
         "&cnt=16&units=imperial&appid=2d41c22ae78b3bd082fd3f0eda60e983";
       //console.log(dailyAPIURL);
       axios.get(dailyAPIURL).then((res2) => {
-        console.log(res2.data.list);
+        //console.log(res2.data.list);
         //        var list = res2.data.list;
 
         setTemps(res2.data.list);
