@@ -4,6 +4,12 @@ import axios from "axios";
 export default function RequestForm() {
   const [message, setMessage] = useState("");
   const [result, setResult] = useState("");
+  const [temps, setTemps] = useState([]);
+  //const [lat, setLat] = useState("");
+  //const [lon, setLon] = useState("");
+
+  let lat = 0;
+  let lon = 0;
 
   const onChange = (e) => {
     setMessage(e.target.value);
@@ -19,16 +25,33 @@ export default function RequestForm() {
       "http://api.openweathermap.org/geo/1.0/direct?q=" +
       message +
       ",US&limit=1&appid=2d41c22ae78b3bd082fd3f0eda60e983";
-    console.log(geoCoderURL);
     axios.get(geoCoderURL).then((res) => {
-      console.log(res);
+      let lat = res.data[0].lat;
+      let lon = res.data[0].lon;
+      let dailyAPIURL =
+        "https://api.openweathermap.org/data/2.5/forecast/daily?lat=" +
+        lat +
+        "&lon=" +
+        lon +
+        "&cnt=16&units=imperial&appid=2d41c22ae78b3bd082fd3f0eda60e983";
+      console.log(dailyAPIURL);
+      axios.get(dailyAPIURL).then((res2) => {
+        //console.log(res2.data.list);
+        setTemps(res2.data.list);
+      });
     });
 
-    const dailyAPIURL =
-      "https://api.openweathermap.org/data/2.5/forecast/daily?lat=32.7762719&lon=-96.7968559&cnt=16&units=imperial&appid=2d41c22ae78b3bd082fd3f0eda60e983";
-    axios.get(dailyAPIURL).then((res) => {
-      console.log(res);
-    });
+    //const dailyAPIURL =
+    //  "https://api.openweathermap.org/data/2.5/forecast/daily?lat=" +
+    //  lat +
+    //  "&lon=" +
+    //  lon +
+    //  "&cnt=16&units=imperial&appid=2d41c22ae78b3bd082fd3f0eda60e983";
+    //console.log(dailyAPIURL);
+    //axios.get(dailyAPIURL).then((res) => {
+    //  console.log(res);
+    //});
+    //});
   };
 
   return (
@@ -39,6 +62,11 @@ export default function RequestForm() {
         <button type="submit">Submit</button>
       </form>
       <label>{result}</label>
+      <ul>
+        {temps.map((item) => (
+          <li key={Math.random()}>High: {item.temp.max}</li>
+        ))}
+      </ul>
     </div>
   );
 }
