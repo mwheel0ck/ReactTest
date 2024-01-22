@@ -3,7 +3,7 @@ import axios from "axios";
 
 export default function RequestForm() {
   const [message, setMessage] = useState("");
-  const [result, setResult] = useState("");
+  //  const [result, setResult] = useState("");
   const [temps, setTemps] = useState([]);
   //const [lat, setLat] = useState("");
   //const [lon, setLon] = useState("");
@@ -16,7 +16,7 @@ export default function RequestForm() {
     e.preventDefault();
     //alert(`You sent the message: ${message}`);
     console.log(message);
-    setResult(message);
+    //   setResult(message);
 
     const geoCoderURL =
       "https://api.openweathermap.org/geo/1.0/direct?q=" +
