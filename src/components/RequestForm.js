@@ -19,7 +19,7 @@ export default function RequestForm() {
     setResult(message);
 
     const geoCoderURL =
-      "http://api.openweathermap.org/geo/1.0/direct?q=" +
+      "https://api.openweathermap.org/geo/1.0/direct?q=" +
       message +
       ",US&limit=1&appid=2d41c22ae78b3bd082fd3f0eda60e983";
     axios.get(geoCoderURL).then((res) => {
