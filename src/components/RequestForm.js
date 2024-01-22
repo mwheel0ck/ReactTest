@@ -61,11 +61,10 @@ export default function RequestForm() {
   return (
     <div className="App">
       <form onSubmit={onSubmit}>
-        <label>City, State</label>
-        <input type="text" name="name" onChange={onChange} />
+        <label className="mr-2">City, State</label>
+        <input className="mr-2" type="text" name="name" onChange={onChange} />
         <button type="submit">Submit</button>
       </form>
-      <label>{result}</label>
       <table className="table table-striped">
         <thead>
           <tr>
