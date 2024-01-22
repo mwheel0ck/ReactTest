@@ -15,7 +15,7 @@ export default function RequestForm() {
   const onSubmit = (e) => {
     e.preventDefault();
     //alert(`You sent the message: ${message}`);
-    console.log(message);
+    //console.log(message);
     //   setResult(message);
 
     const geoCoderURL =
@@ -31,7 +31,7 @@ export default function RequestForm() {
         "&lon=" +
         lon +
         "&cnt=16&units=imperial&appid=2d41c22ae78b3bd082fd3f0eda60e983";
-      console.log(dailyAPIURL);
+      //console.log(dailyAPIURL);
       axios.get(dailyAPIURL).then((res2) => {
         console.log(res2.data.list);
         //        var list = res2.data.list;
@@ -74,6 +74,7 @@ export default function RequestForm() {
           <tr>
             <th>Date</th>
             <th>Temp</th>
+            <th>Weather</th>
          </tr>
         </thead>
         <tbody>
@@ -81,6 +82,7 @@ export default function RequestForm() {
             <tr key={Math.random()}>
               {parseDate(item.dt)}
               <td>{item.temp.max} / {item.temp.min} ºF</td>
+              <td>{item.weather[0].description}</td>
             </tr>
           ))}
         </tbody>
