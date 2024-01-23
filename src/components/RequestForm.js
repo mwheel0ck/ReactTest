@@ -9,7 +9,7 @@ export default function RequestForm() {
   //const [lon, setLon] = useState("");
 
   const successCallback = (position) => {
-    console.log(position);
+    //console.log(position);
     let lat = position.coords.latitude;
     let lon = position.coords.longitude;
     let dailyAPIURL =
