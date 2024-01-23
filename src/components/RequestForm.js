@@ -83,7 +83,7 @@ export default function RequestForm() {
     const d = new Date(dummy);
     //d.setUTCSeconds(dummy,0);
     //console.log(d);
-    return <td>{d.toISOString().substring(0, 10)}</td>;
+    return <td>{d.toDateString()}</td>;
   }
 
   function parsePOP(popfloat) {
@@ -98,6 +98,10 @@ export default function RequestForm() {
         <label className="mr-2">City, State</label>
         <input className="mr-2" type="text" name="name" onChange={onChange} />
         <button type="submit">Submit</button>
+        <p>
+        <label className="mr-2">GPS</label><input className="mr-2" type="radio" name="radioChoice" value="GPS" checked="checked" onChange={onChange}/>
+        <label className="mr-2">Form</label><input type="radio" name="radioChoice" value="FORM" onChange={onChange}/>
+        </p>
       </form>
       <div className="container container-sm">
         <table className="table table-striped">
