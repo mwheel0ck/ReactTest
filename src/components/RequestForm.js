@@ -10,10 +10,10 @@ export default function RequestForm() {
 
   const successCallback = (position) => {
     //console.log(position);
-    let lat = position.coords.latitude;
-    let lon = position.coords.longitude;
-    let dailyAPIURL =
-      "https://api.openweathermap.org/data/2.5/forecast/daily?lat=" +
+    //let lat = position.coords.latitude;
+    //let lon = position.coords.longitude;
+    //let dailyAPIURL =
+    "https://api.openweathermap.org/data/2.5/forecast/daily?lat=" +
       lat +
       "&lon=" +
       lon +
