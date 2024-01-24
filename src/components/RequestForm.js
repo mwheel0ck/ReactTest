@@ -19,12 +19,12 @@ export default function RequestForm() {
       lon +
       "&cnt=16&units=imperial&appid=2d41c22ae78b3bd082fd3f0eda60e983";
     //console.log(dailyAPIURL);
-    axios.get(dailyAPIURL).then((res2) => {
-      //console.log(res2.data.list);
-      //        var list = res2.data.list;
+    //axios.get(dailyAPIURL).then((res2) => {
+    //console.log(res2.data.list);
+    //        var list = res2.data.list;
 
-      setTemps(res2.data.list);
-    });
+    //setTemps(res2.data.list);
+    //});
   };
 
   const errorCallback = (error) => {
@@ -99,8 +99,22 @@ export default function RequestForm() {
         <input className="mr-2" type="text" name="name" onChange={onChange} />
         <button type="submit">Submit</button>
         <p>
-        <label className="mr-2">GPS</label><input className="mr-2" type="radio" name="radioChoice" value="GPS" checked="checked" onChange={onChange}/>
-        <label className="mr-2">Form</label><input type="radio" name="radioChoice" value="FORM" onChange={onChange}/>
+          <label className="mr-2">GPS</label>
+          <input
+            className="mr-2"
+            type="radio"
+            name="radioChoice"
+            value="GPS"
+            checked="checked"
+            onChange={onChange}
+          />
+          <label className="mr-2">Form</label>
+          <input
+            type="radio"
+            name="radioChoice"
+            value="FORM"
+            onChange={onChange}
+          />
         </p>
       </form>
       <div className="container container-sm">
