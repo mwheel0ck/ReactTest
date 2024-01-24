@@ -13,11 +13,11 @@ export default function RequestForm() {
     let lat = position.coords.latitude;
     let lon = position.coords.longitude;
     //let dailyAPIURL =
-    "https://api.openweathermap.org/data/2.5/forecast/daily?lat=" +
-      lat +
-      "&lon=" +
-      lon +
-      "&cnt=16&units=imperial&appid=2d41c22ae78b3bd082fd3f0eda60e983";
+    //"https://api.openweathermap.org/data/2.5/forecast/daily?lat=" +
+    // lat +
+    //  "&lon=" +
+    //  lon +
+    //  "&cnt=16&units=imperial&appid=2d41c22ae78b3bd082fd3f0eda60e983";
     //console.log(dailyAPIURL);
     //axios.get(dailyAPIURL).then((res2) => {
     //console.log(res2.data.list);
