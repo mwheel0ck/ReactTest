@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import env from "react-dotenv";
 
 export default function RequestForm() {
   const [message, setMessage] = useState("");
@@ -9,7 +10,7 @@ export default function RequestForm() {
   //const [lon, setLon] = useState("");
 
   const successCallback = (position) => {
-    //console.log(position);
+    //console.log(process.env.REACT_APP_WEATHER_API_KEY);
     //let lat = position.coords.latitude;
     //let lon = position.coords.longitude;
     //let dailyAPIURL =
@@ -45,7 +46,8 @@ export default function RequestForm() {
     const geoCoderURL =
       "https://api.openweathermap.org/geo/1.0/direct?q=" +
       message +
-      ",US&limit=1&appid=2d41c22ae78b3bd082fd3f0eda60e983";
+      ",US&limit=1&appid=" +
+      process.env.REACT_APP_WEATHER_API_KEY;
     axios.get(geoCoderURL).then((res) => {
       let lat = res.data[0].lat;
       let lon = res.data[0].lon;
@@ -54,7 +56,8 @@ export default function RequestForm() {
         lat +
         "&lon=" +
         lon +
-        "&cnt=16&units=imperial&appid=2d41c22ae78b3bd082fd3f0eda60e983";
+        "&cnt=16&units=imperial&appid=" +
+        process.env.REACT_APP_WEATHER_API_KEY;
       //console.log(dailyAPIURL);
       axios.get(dailyAPIURL).then((res2) => {
         //console.log(res2.data.list);
